@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+    id 'groovy'
+    id 'idea'
+    id "io.freefair.lombok" version "6.3.0"
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id "com.diffplug.spotless" version "6.2.2"
+}
+
+group 'com.pulsepoint'
+version '1.0.0-SNAPSHOT'
+
+sourceCompatibility = JavaVersion.current()
+targetCompatibility = JavaVersion.current()
+
+mainClassName = 'com.pulsepoint.drawing.Drawing'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation localGroovy()
+
+    testRuntimeOnly libs.junit.engine
+    testImplementation libs.bundles.junit
+    implementation libs.apache.collections
+}
+
+spotless {
+    java {
+        googleJavaFormat()
+    }
+    groovy {
+        greclipse()
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
