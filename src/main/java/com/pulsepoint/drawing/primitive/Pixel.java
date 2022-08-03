@@ -1,13 +1,10 @@
 package com.pulsepoint.drawing.primitive;
 
-import lombok.AllArgsConstructor;
-import lombok.Value;
+import java.util.Objects;
 
-@Value
-@AllArgsConstructor
-public class Pixel {
-  Point point;
-  Colour colour;
+public final class Pixel {
+  private final Point point;
+  private final Colour colour;
 
   public Pixel(int x, int y, char value) {
     this.point = new Point(x, y);
@@ -16,6 +13,11 @@ public class Pixel {
 
   public Pixel(int x, int y, Colour colour) {
     this.point = new Point(x, y);
+    this.colour = colour;
+  }
+
+  public Pixel(Point point, Colour colour) {
+    this.point = point;
     this.colour = colour;
   }
 
@@ -29,5 +31,30 @@ public class Pixel {
 
   public char getColourValue() {
     return colour.getValue();
+  }
+
+  public Point getPoint() {
+    return this.point;
+  }
+
+  public Colour getColour() {
+    return this.colour;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Pixel pixel = (Pixel) o;
+    return point.equals(pixel.point) && colour.equals(pixel.colour);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(point, colour);
+  }
+
+  public String toString() {
+    return "Pixel(point=" + this.getPoint() + ", colour=" + this.getColour() + ")";
   }
 }

@@ -7,10 +7,8 @@ import com.pulsepoint.drawing.primitive.Point;
 import com.pulsepoint.drawing.primitive.Shape;
 import java.util.Deque;
 import java.util.NoSuchElementException;
-import lombok.Getter;
 import org.apache.commons.collections4.IterableUtils;
 
-@Getter
 public class CommandRectangle implements Command {
 
   private static final BresenhamAlgo lineAlgo = new BresenhamAlgo();
@@ -28,6 +26,14 @@ public class CommandRectangle implements Command {
       throw new IllegalArgumentException(
           "Arguments for CommandRectangle should have 4 coordinates which represent as 4 integer values");
     }
+  }
+
+  public Point getLeftCorner() {
+    return leftCorner;
+  }
+
+  public Point getRightCorner() {
+    return rightCorner;
   }
 
   @Override

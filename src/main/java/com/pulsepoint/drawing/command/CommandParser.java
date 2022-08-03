@@ -1,13 +1,19 @@
 package com.pulsepoint.drawing.command;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Deque;
+import java.util.Optional;
 import java.util.stream.Stream;
-import lombok.NonNull;
 
 public class CommandParser {
 
-  public Command parseCommand(@NonNull String input)
+  public Command parseCommand(String input)
       throws IllegalCommandException, IllegalArgumentException {
+    if (input == null) {
+      throw new IllegalArgumentException("Command can't be null ");
+    }
+
     String[] split = input.trim().split("\\s");
     Deque<String> tokens = new ArrayDeque<>(Arrays.asList(split));
 

@@ -1,17 +1,25 @@
 package com.pulsepoint.drawing.primitive;
 
 import java.util.Iterator;
-import lombok.AllArgsConstructor;
-import lombok.Value;
 
-@Value
-@AllArgsConstructor
-public class Shape implements Iterable<Pixel> {
+public final class Shape implements Iterable<Pixel> {
 
-  Iterable<Pixel> iterable;
+  private final Iterable<Pixel> iterable;
+
+  public Shape(Iterable<Pixel> iterable) {
+    this.iterable = iterable;
+  }
 
   @Override
   public Iterator<Pixel> iterator() {
     return iterable.iterator();
+  }
+
+  public Iterable<Pixel> getIterable() {
+    return this.iterable;
+  }
+
+  public String toString() {
+    return "Shape(iterable=" + this.getIterable() + ")";
   }
 }

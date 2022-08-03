@@ -7,9 +7,7 @@ import com.pulsepoint.drawing.primitive.Shape;
 import java.util.Collections;
 import java.util.Deque;
 import java.util.NoSuchElementException;
-import lombok.Getter;
 
-@Getter
 public class CommandNewCanvas implements Command {
 
   private final int width;
@@ -24,6 +22,14 @@ public class CommandNewCanvas implements Command {
       throw new IllegalArgumentException(
           "Arguments for CommandNewCanvas should have width and height which represent as 2 integer values");
     }
+  }
+
+  public int getWidth() {
+    return width;
+  }
+
+  public int getHeight() {
+    return height;
   }
 
   @Override

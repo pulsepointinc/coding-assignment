@@ -9,9 +9,7 @@ import com.pulsepoint.drawing.primitive.Point;
 import com.pulsepoint.drawing.primitive.Shape;
 import java.util.Deque;
 import java.util.NoSuchElementException;
-import lombok.Getter;
 
-@Getter
 public class CommandBucketFill implements Command {
   private static final FloodFill4 fillAlgo = new FloodFill4();
 
@@ -31,6 +29,14 @@ public class CommandBucketFill implements Command {
       throw new IllegalArgumentException(
           "Arguments for CommandBucketFill should have 4 coordinates which represent as 4 integer values");
     }
+  }
+
+  public Point getStartPoint() {
+    return startPoint;
+  }
+
+  public Colour getColour() {
+    return colour;
   }
 
   @Override

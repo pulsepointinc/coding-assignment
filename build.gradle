@@ -2,7 +2,6 @@ plugins {
     id 'java'
     id 'groovy'
     id 'idea'
-    id "io.freefair.lombok" version "6.3.0"
     id 'application'
     id 'com.github.johnrengelman.shadow' version '7.1.2'
     id "com.diffplug.spotless" version "6.2.2"

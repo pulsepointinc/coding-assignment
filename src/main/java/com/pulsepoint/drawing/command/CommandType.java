@@ -2,10 +2,7 @@ package com.pulsepoint.drawing.command;
 
 import java.util.Deque;
 import java.util.Optional;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
 public enum CommandType {
   NEW_CANVAS("C", CommandNewCanvas::new),
   LINE("L", CommandLine::new),
@@ -15,10 +12,19 @@ public enum CommandType {
   ;
 
   private final String commandCharacter;
-  @Getter private final ArgParser commandArgParser;
+  private final ArgParser commandArgParser;
+
+  CommandType(String commandCharacter, ArgParser commandArgParser) {
+    this.commandCharacter = commandCharacter;
+    this.commandArgParser = commandArgParser;
+  }
 
   public Optional<CommandType> tryParse(String input) {
     return input.equalsIgnoreCase(commandCharacter) ? Optional.of(this) : Optional.empty();
+  }
+
+  public ArgParser getCommandArgParser() {
+    return this.commandArgParser;
   }
 
   @FunctionalInterface

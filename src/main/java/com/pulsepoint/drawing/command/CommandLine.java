@@ -9,9 +9,7 @@ import com.pulsepoint.drawing.primitive.Point;
 import com.pulsepoint.drawing.primitive.Shape;
 import java.util.Deque;
 import java.util.NoSuchElementException;
-import lombok.Getter;
 
-@Getter
 public class CommandLine implements Command {
 
   public static final Colour LINE_COLOUR = new Colour('x');
@@ -29,6 +27,14 @@ public class CommandLine implements Command {
       throw new IllegalArgumentException(
           "Arguments for CommandLine should have 4 coordinates which represent as 4 integer values");
     }
+  }
+
+  public Point getStart() {
+    return start;
+  }
+
+  public Point getEnd() {
+    return end;
   }
 
   @Override
