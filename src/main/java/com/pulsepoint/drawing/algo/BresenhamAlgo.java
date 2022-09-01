@@ -63,7 +63,7 @@ public class BresenhamAlgo {
 
     return new Shape(
         () ->
-            new Iterator<>() {
+            new Iterator<Pixel>() {
               int D = (2 * deltaY) - deltaX;
               int currentX = x0;
               int currentY = y0;
@@ -102,7 +102,7 @@ public class BresenhamAlgo {
 
     return new Shape(
         () ->
-            new Iterator<>() {
+            new Iterator<Pixel>() {
               int D = (2 * deltaX) - deltaY;
 
               int currentX = x0;

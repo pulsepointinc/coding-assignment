@@ -20,7 +20,7 @@ public class FloodFill4 {
     Colour startPixelColour;
 
     Optional<Pixel> optionalPixel = canvas.getPixel(startPoint);
-    if (optionalPixel.isEmpty() || optionalPixel.get().getColour().equals(colour)) {
+    if (!optionalPixel.isPresent() || optionalPixel.get().getColour().equals(colour)) {
       return new Shape(Collections::emptyIterator);
     } else {
       startPixelColour = optionalPixel.get().getColour();
@@ -29,7 +29,7 @@ public class FloodFill4 {
     final Deque<Point> stack = new ArrayDeque<>(Collections.singletonList(startPoint));
     return new Shape(
         () ->
-            new Iterator<>() {
+            new Iterator<Pixel>() {
               final Set<Point> alreadyWatched = new HashSet<>();
               // there is no implementation of Deque based on LinkedHashSet =(
               final Set<Point> inProcess = new HashSet<>();

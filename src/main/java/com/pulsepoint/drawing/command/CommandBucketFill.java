@@ -27,7 +27,8 @@ public class CommandBucketFill implements Command {
 
     } catch (NoSuchElementException | NumberFormatException e) {
       throw new IllegalArgumentException(
-          "Arguments for CommandBucketFill should have 4 coordinates which represent as 4 integer values");
+          "Arguments for CommandBucketFill should have 2 coordinates (2 integer values) "
+              + "and colour (any ASCII character)");
     }
   }
 

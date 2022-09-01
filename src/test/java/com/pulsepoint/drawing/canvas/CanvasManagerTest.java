@@ -7,7 +7,7 @@ import com.pulsepoint.drawing.command.result.FailedResult;
 import com.pulsepoint.drawing.command.result.OkResult;
 import com.pulsepoint.drawing.command.result.PartiallyAppliedResult;
 import java.util.ArrayDeque;
-import java.util.List;
+import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
 class CanvasManagerTest {
@@ -28,6 +28,6 @@ class CanvasManagerTest {
 
   private CommandLine newLine(int endX, int endY) {
     return new CommandLine(
-        new ArrayDeque<>(List.of("0", "0", String.valueOf(endX), String.valueOf(endY))));
+        new ArrayDeque<>(Arrays.asList("0", "0", String.valueOf(endX), String.valueOf(endY))));
   }
 }
