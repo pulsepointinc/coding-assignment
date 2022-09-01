@@ -4,7 +4,7 @@ plugins {
     id 'idea'
     id 'application'
     id 'com.github.johnrengelman.shadow' version '7.1.2'
-    id "com.diffplug.spotless" version "6.2.2"
+    id "com.diffplug.spotless" version "6.7.1"
 }
 
 group 'com.pulsepoint'
