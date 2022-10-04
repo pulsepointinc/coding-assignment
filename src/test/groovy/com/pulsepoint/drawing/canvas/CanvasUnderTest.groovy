@@ -33,17 +33,17 @@ abstract class CanvasUnderTest {
 		assertCurrentCanvasPicture(canvas, expectedCanvasPicture)
 	}
 
-    static void assertCurrentCanvasPicture(ConsoleCanvas canvas, String expected) {
-        Writer writer = new StringWriter()
-        canvas.show(writer)
-        String cleanedExpected = expected.replace("\r", "").trim()
-        String cleanedCanvasOutput =
-                writer.getBuffer().toString()
-                        .replace("\r", "")
-                        .trim()
-        println(cleanedCanvasOutput)
-        assertEquals(
-                System.lineSeparator() + cleanedExpected,
-                System.lineSeparator() + cleanedCanvasOutput)
-    }
+	static void assertCurrentCanvasPicture(ConsoleCanvas canvas, String expected) {
+		Writer writer = new StringWriter()
+		canvas.show(writer)
+		String cleanedExpected = expected.replace("\r", "").trim()
+		String cleanedCanvasOutput =
+				writer.getBuffer().toString()
+				.replace("\r", "")
+				.trim()
+		println(cleanedCanvasOutput)
+		assertEquals(
+				System.lineSeparator() + cleanedExpected,
+				System.lineSeparator() + cleanedCanvasOutput)
+	}
 }
